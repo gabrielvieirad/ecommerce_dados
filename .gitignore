@@ -1,0 +1,31 @@
+# Arquivos e pastas do Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.db
+*.sqlite3
+
+# Virtualenv
+env/
+venv/
+.venv/
+ENV/
+env.bak/
+
+# Arquivos de IDE
+.vscode/
+.idea/
+
+# Logs e temporários
+*.log
+*.tmp
+*.bak
+.DS_Store
+
+# Dados locais
+*.csv
+*.xlsx
+
+# Configs do sistema
+*.env
