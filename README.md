@@ -6,9 +6,8 @@ Este projeto tem como objetivo consolidar dados de vendas e performance de múlt
 O foco é oferecer uma visão unificada e confiável de faturamento, volume de vendas, ticket médio e desempenho por canal, com dashboards analíticos desenvolvidos em Power BI.
 
 ---
-
 ## Estrutura do Projeto
-
+```bash
 projeto_ecommerce_dados/
 │
 ├── dados/
@@ -40,7 +39,7 @@ projeto_ecommerce_dados/
 │
 └── README.md
 
-
+```
 ---
 
 ## Stack Técnica
@@ -93,68 +92,76 @@ Vendas Totais = SUM('dados_gerais'[vendas])
 Receita Total = SUM('dados_gerais'[valor_total])
 Ticket Médio = DIVIDE([Receita Total], [Vendas Totais])
 SKUs Únicos = DISTINCTCOUNT('dados_gerais'[sku])
+```
+---
+
+
+## Estrutura das Páginas do Dashboard Power BI
+
+### Página 1 — Visão Geral
+- **Gráfico de linha**: Receita mensal consolidada, exibindo a evolução temporal do faturamento total.
+- **Cards principais**: Receita Total, Vendas Totais, Ticket Médio e SKUs Únicos.
+- **Filtros**: Canal e Ano.
+- **Objetivo**: fornecer uma visão macro do desempenho consolidado e das tendências mensais de receita.
 
 ---
 
-Estrutura das Páginas do Dashboard Power BI
-Página 1 — Visão Geral
+### Página 2 — Comparativo de Marketplaces
+- **Gráfico de colunas**: Receita Total por canal, permitindo identificar o desempenho individual de cada marketplace.
+- **Gráfico de pizza**: Participação percentual de cada canal na receita total consolidada.
+- **Tabela detalhada**: SKU, Produto, Canal, Vendas e Valor Total.
+- **KPI adicional**: Ticket Médio comparativo entre canais.
+- **Objetivo**: analisar a distribuição de receita entre marketplaces e identificar canais de maior rentabilidade.
 
-Gráfico de área ou linha: Receita mensal consolidada.
+---
 
-Cards: Receita Total, Vendas Totais, Ticket Médio.
+### Página 3 — Top Produtos
+- **Gráfico de barras**: Top 10 produtos com maior receita no período analisado.
+- **Linha temporal**: evolução mensal dos produtos mais vendidos.
+- **Filtros**: Canal e Ano.
+- **Objetivo**: destacar os produtos de melhor desempenho e acompanhar suas variações mensais.
 
-Filtros: Canal e Ano.
+---
 
-Página 2 — Comparativo de Marketplaces
+## Resultados Obtidos
+- **Integração de cinco fontes de dados distintas** (Amazon, Mercado Livre, Shopee, TikTok e Beleza na Web) sem utilização de APIs.
+- **Criação de uma base de dados única e padronizada** (`dados_gerais.csv`) centralizando todas as informações de vendas.
+- **Correção e padronização de separadores decimais**, nomenclaturas de canais e colunas inconsistentes.
+- **Implementação de medidas DAX personalizadas** para cálculo de Receita Total, Vendas Totais, Ticket Médio, SKUs Únicos e Variação Mensal.
+- **Construção de relacionamento temporal com tabela calendário** para análises contínuas e comparações históricas.
+- **Redução significativa do esforço manual** através de transformações automatizadas via Power Query.
+- **Desenvolvimento de um dashboard analítico e interativo** com filtros dinâmicos, comparativos de marketplaces e acompanhamento de produtos estratégicos.
+- **Estrutura modular e expansível**, permitindo integração de novos canais ou períodos futuros sem necessidade de refatoração completa.
 
-Gráfico de colunas: Receita por Canal.
+---
 
-Gráfico de pizza: Participação percentual por canal.
+## Considerações Técnicas
+- **Tratamento de dados realizado no Power Query** com ajuste de localidade (“en-US”) para correta interpretação de valores decimais.
+- **Recriação das medidas após substituição da base**, garantindo compatibilidade e consistência nos visuais.
+- **Configuração de eixos contínuos e desativação de hierarquias automáticas** para melhor desempenho temporal.
+- **Aplicação de tema visual** com cores padronizadas por canal e tipografia legível (Segoe UI).
+- **Organização dos visuais em três páginas temáticas**, facilitando leitura executiva e análise comparativa.
 
-Tabela detalhada com SKU, Produto, Canal, Vendas e Valor Total.
+---
 
-Página 3 — Top Produtos
+## Aprendizados e Lições Técnicas
+- **Uso de localidade no Power Query**: Foi necessário ajustar a localidade para "en-US" ao importar os dados, garantindo que os separadores decimais fossem corretamente interpretados.
+- **Configuração de eixos contínuos**: Ao trabalhar com dados temporais, é fundamental configurar os eixos como contínuos para garantir que o gráfico de linha ou área mostre uma linha contínua e precisa, evitando quebras desnecessárias.
+- **Utilização de tema JSON**: Aplicar um tema visual padronizado garantiu consistência no design, especialmente com o uso de cores específicas para cada canal. 
+- **Escalabilidade do dashboard**: A estrutura modular do Power BI permite integrar facilmente novas fontes de dados, mantendo o dashboard funcional e expansível para futuros canais de vendas ou análises adicionais.
+---
 
-Gráfico de barras: Top 10 produtos por receita.
+### Autor
 
-Linha temporal mostrando evolução mensal dos produtos mais vendidos.
+- Gabriel Vieira
+- Desenvolvedor e Analista de Dados
+- Contato: www.linkedin.com/in/gabriel-vieira-6a5039117
+---
 
-Filtros de Canal e Ano.
-
-Resultados Obtidos
-
-Integração de cinco fontes distintas sem uso de APIs.
-
-Criação de uma base única e padronizada (dados_gerais.csv).
-
-Redução significativa de esforço manual com scripts de automação.
-
-Dashboard analítico interativo com comparativo completo de marketplaces.
-
-Pipeline modular e expansível para futuras integrações.
-
-Próximos Passos
-
-Implementar atualização automática mensal.
-
-Incluir previsões de vendas (Prophet/ARIMA).
-
-Criar alertas automáticos de performance.
-
-Integrar o pipeline com o Power BI Service.
-
-Autor
-
-Gabriel Vieira
-Desenvolvedor e Analista de Dados
-Contato: [seu e-mail ou LinkedIn]
-
-Licença
+### Licença
 
 Este projeto é de uso livre para fins educacionais e demonstração técnica.
 A redistribuição ou uso comercial sem autorização é proibida.
 
-
 ---
 
-Se quiser, posso gerar o arquivo `.md` real para você baixar e subir diretamente no GitHub (sem precisar copiar/colar manualmente). Deseja que eu gere o arquivo README.md para download?
